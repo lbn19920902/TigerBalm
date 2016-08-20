@@ -11,19 +11,15 @@ def plot_grid_search_result(grid_scores, x, y = "mean_validation_score", hue = N
 	x = str(x)
 	y = str(y)
 	if not hue:
-		plot_df = plot_df.groupby([x])[y].agg(np.mean).reset_index()
 		figure = sns.factorplot(x = x, y = y, data = plot_df)
 	elif not row:
 		hue = str(hue)
-		plot_df = plot_df.groupby([x, hue]).agg(np.mean).reset_index()
 		figure = sns.factorplot(x = x, y = y, hue = hue, data = plot_df)
 	elif not col:
 		row = str(row)
-		plot_df = plot_df.groupby([x, hue, row]).agg(np.mean).reset_index()
 		figure = sns.factorplot(x = x, y = y, hue = hue, row = row, data = plot_df)
 	else:
 		col = str(col)
-		plot_df = plot_df.groupby([x, hue, row, col]).agg(np.mean).reset_index()
 		figure = sns.factorplot(x = x, y = y, hue = hue, row = row, col = col, data = plot_df)
 	if not save_to_file:
 		plt.show()
