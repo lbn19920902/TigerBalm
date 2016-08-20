@@ -8,18 +8,13 @@ def plot_grid_search_result(grid_scores, x, y = "mean_validation_score", hue = N
  	plot_df["mean_validation_score"] = [result.mean_validation_score for result in grid_scores]
  	sns.set(style="whitegrid")
 	plt.rcParams['figure.figsize'] = (16, 9)
-	x = str(x)
-	y = str(y)
 	if not hue:
 		figure = sns.factorplot(x = x, y = y, data = plot_df)
 	elif not row:
-		hue = str(hue)
 		figure = sns.factorplot(x = x, y = y, hue = hue, data = plot_df)
 	elif not col:
-		row = str(row)
 		figure = sns.factorplot(x = x, y = y, hue = hue, row = row, data = plot_df)
 	else:
-		col = str(col)
 		figure = sns.factorplot(x = x, y = y, hue = hue, row = row, col = col, data = plot_df)
 	if not save_to_file:
 		plt.show()
