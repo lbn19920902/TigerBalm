@@ -1,7 +1,11 @@
+'''
+    @ Ren Zhang : ryanzjlib@gmail.com 
+    last update : 2016-08-17
+'''
 
 def continuous_chunks(indices, num_chunks):
 	"""
-
+		
 	"""
 	num_the_current_chunk = int(1.0 * len(indices) / num_chunks + 0.5)
 

@@ -1,7 +1,11 @@
+'''
+    @ Ren Zhang : ryanzjlib@gmail.com 
+    last update : 2016-08-20
+'''
 
 from matplotlib import pyplot as plt
-import pandas as pd
 import seaborn as sns
+import pandas as pd
 import numpy as np
 sns.set(style="whitegrid")
 plt.rcParams["figure.figsize"] = (16, 9)
@@ -25,9 +29,10 @@ def plot_grid_search_result(grid_scores, x, y = "mean_validation_score", hue = N
 		figure.savefig(file_name)
 
 
-def plot_roc_curve(roc_curves,save_to_file = False, file_name = "plot.png"):
+def plot_roc_curve(roc_curves, save_to_file = False, file_name = "plot.png"):
 	"""expecting roc_curves to be a list of tuples, ("method_name", (fpr, tpr, threshold)))"""
 	num_methods = len(roc_curves)
+	sns.palplot(sns.color_palette("hls", num_methods))
 	plt.figure()
 	plt.xlim([-0.05,1.05])
 	plt.ylim([-0.05,1.05])
@@ -36,7 +41,7 @@ def plot_roc_curve(roc_curves,save_to_file = False, file_name = "plot.png"):
 		fpr, tpr, _ = curve[1]
 		fpr = np.concatenate([[0], fpr, [1]])
 		tpr = np.concatenate([[0], tpr, [1]])
-		plt.plot(fpr, tpr, label = method_name)
+		plt.plot(fpr, tpr, label = method_name, lw = 2)
 	plt.xlabel("False Positive Rate")
 	plt.ylabel("True Positive Rate")
 	plt.title("ROC curve(s)")

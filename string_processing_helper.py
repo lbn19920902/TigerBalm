@@ -11,12 +11,6 @@ def find_nth_occurrence(fullstr, substr, n, left = True):
     '''
         find the start position of the nth occurrence of a substring within a string
         the last parameters indicates it is the nth occurrence from left or right 
-        my actual uscase: 
-            when i was writing code to parse a "\t" sepearted data file which has a data field that is actually
-            some transcripts of phone calls. there might be couple of "\t"s within the text field for some rows,
-            so a simple row.split("\t") will not give back lists that is desired to form a dataframe. 
-            i used this code to find the begining and end of the text field for each row, and then replaced the "\t"s
-            within the text field so that afterwards i can split on "\t" to get equal number of elements for every row.   
     '''
     if left:
         start = fullstr.find(substr)
