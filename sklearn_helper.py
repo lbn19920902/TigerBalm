@@ -32,6 +32,7 @@ def plot_grid_search_result(grid_scores, x, y = "mean_validation_score", hue = N
 def plot_roc_curve(roc_curves, save_to_file = False, file_name = "plot.png"):
 	"""expecting roc_curves to be a list of tuples, ("method_name", (fpr, tpr, threshold)))"""
 	num_methods = len(roc_curves)
+	# TODO: the number of colors still not working
 	sns.palplot(sns.color_palette("hls", num_methods))
 	plt.figure()
 	plt.xlim([-0.05,1.05])
