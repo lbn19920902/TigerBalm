@@ -12,7 +12,43 @@ plt.rcParams["figure.figsize"] = (16, 9)
 
 
 def plot_grid_search_result(grid_scores, x, y = "mean_validation_score", hue = None, row = None, col = None, save_to_file = False, file_name = "plot.png"):
-	"""expecting grid_scores to be the grid_scores attribute from a fitted grid_search object"""
+	"""
+		expecting grid_scores to be the grid_scores attribute from a fitted grid_search object
+
+		Example: 
+
+		param_grid = {
+		    "learning_rate":[0.08, 0.1, 0.12],                      
+		    "gamma":[0.0],                                
+		    "max_depth":[6, 9, 11],
+		    "min_child_weight":[5, 7, 9],
+		    "subsample":[1.0],
+		    "colsample_bytree":[0.5],
+		    "reg_lambda":[1],
+		    "reg_alpha":[0],
+		    "n_estimators": [130, 150, 180, 210]              
+		    }
+
+		clf = XGBClassifier(
+		    objective = "multi:softprob"
+		    )
+
+		grid_search = GridSearchCV(
+		    estimator = clf,
+		    param_grid = param_grid,
+		    scoring = "log_loss",
+		    n_jobs = 1,
+		    cv = 5,
+		    verbose = 1)
+
+		grid_search.fit(X, y)
+		plot_grid_search_result(
+			grid_search.grid_scores_, 
+			x = "n_estimators", 
+			hue = "learning_rate",
+			row = "min_child_weight",
+			col = "max_depth")
+	"""
 	plot_df = pd.DataFrame([result.parameters for result in grid_scores])
  	plot_df["mean_validation_score"] = [result.mean_validation_score for result in grid_scores]
 	if not hue:
