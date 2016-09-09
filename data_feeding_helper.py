@@ -24,7 +24,7 @@ def continuous_batches(lst, num_batches):
 		yield lst[i*num_the_current_batch:(i+1)*num_the_current_batch]
 	yield lst[(num_batches -1)* num_the_current_batch:]
 
-def batch_generator(X, y = None, batch_size, shuffle):
+def batch_generator(X, y = None, batch_size = 500, shuffle = False):
     """
         modified version, generate batches of X and y rather than just the indices
         also allow random shuffle
