@@ -27,6 +27,11 @@ Better keep them in a place so that I can easily find and reuse them. : )
 ## sklearn_helper.py
 + plot_grid_search_result: function to plot GridSeachCV results by multiple facets  
 + plot_roc_curve: function to plot one or more ROC curves overlay  
+<<<<<<< HEAD
 + clf_accuracy_score_by_class: function to classification accuracy by class  
 
+||||||| merged common ancestors
+=======
++ clf_accuracy_score_by_class: function to calculate classification accuracy scores by class 
+>>>>>>> origin/master
   
