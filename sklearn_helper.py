@@ -101,7 +101,6 @@ def plot_roc_curve(roc_curves, save_to_file = False, file_name = "plot.png"):
 def clf_accuracy_score_by_class(y_true, y_pred):
     """
         return accuracy score by class for multiclass classification problem 
-
         # example:
         from sklearn.datasets import load_iris
         from sklearn.tree import DecisionTreeClassifier
