@@ -1,10 +1,10 @@
 '''
     @ Ren Zhang : ryanzjlib@gmail.com 
-    last update : 2016-08-20
+    last update : 2016-10-08
 '''
 from __future__ import print_function
 
-def pandas_read_large_csv(file, chunksize = 10 ** 5, **kwargs):
+def pandas_read_large_csv(file, chunksize = 10 ** 5, verbose = False, **kwargs):
     '''
         a wrapper function for reading huge csv files by smaller chuncks several times
         updated Sept-22-16 can specify dtype, also increased chunksize by 10 
@@ -13,8 +13,13 @@ def pandas_read_large_csv(file, chunksize = 10 ** 5, **kwargs):
     '''
     import pandas as pd
     chunks = []
+    i = 1
     for chunk in pd.read_csv(file, chunksize = chunksize, **kwargs):
+        if verbose:
+            print("reading chunk number {} of size {}".format(i, chunksize))
         chunks.append(chunk)
+    if verbose:
+        print("all data read, concatnating them together")
     return pd.concat(chunks)
 
 def duplicate_columns(df, return_dataframe = False, verbose = False):
@@ -32,6 +37,8 @@ def duplicate_columns(df, return_dataframe = False, verbose = False):
 
         # find duplicated columns by checking pairs of columns, store first column name if duplicate exist 
         for i in range(num_columns):
+            if verbose:
+                print("checking column number {}".format(i+1))
             column_i = column_values.iloc[:,i].values
             for j in range(i + 1, num_columns):
                 column_j = column_values.iloc[:,j].values
