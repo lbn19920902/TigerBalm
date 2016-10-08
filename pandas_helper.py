@@ -25,6 +25,7 @@ def pandas_read_large_csv(file, chunksize = 10 ** 5, verbose = False, **kwargs):
 def duplicate_columns(df, return_dataframe = False, verbose = False):
     '''
         a function to detect and possibly remove duplicated columns for a pandas dataframe
+        as for now, it will drop the column more towards the left side
     '''
     from pandas.core.common import array_equivalent
     # group columns by dtypes, only the columns of the same dtypes can be duplicate of each other
@@ -52,5 +53,5 @@ def duplicate_columns(df, return_dataframe = False, verbose = False):
         return duplicated_columns
     else:
         # return a dataframe with duplicated columns dropped 
-        return df.drop(labels = duplicated_columns, axis = 1)
+        return df.drop(labels = duplicated_columns, axis = 1), duplicated_columns
 
