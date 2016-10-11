@@ -55,3 +55,9 @@ def duplicate_columns(df, return_dataframe = False, verbose = False):
         # return a dataframe with duplicated columns dropped 
         return df.drop(labels = duplicated_columns, axis = 1), duplicated_columns
 
+def drop_highly_correlated(df, threshold = 0.98, return_dataframe = False, verbose = False):
+    '''
+        a function to cal
+        as for now, it will drop the column more towards the left side
+    '''
+    return None
