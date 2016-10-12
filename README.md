@@ -11,7 +11,7 @@ Better keep them in a place so that I can easily find and reuse them. : )
 	from pandas_helper import pandas_read_large_csv
 
 ## string_processing_helper
-+ find_nth_occurrence: function to find the nth occurrence of a substring within the string from given oritentation  
++ find_nth_occurrence: function to find the nth occurrence of a substring within the string from given direction    
 + remove_in_between: remove substrings within a given sub region of a string  
 
 ## data_feeding_helper
@@ -31,3 +31,6 @@ Better keep them in a place so that I can easily find and reuse them. : )
 + gangup: return a string that is a multiplicate of n times the given input  
 + jumbotron: formatted print out with horizontal line break and time stamp  
   
+## feature_engineering  
++ two_way_interaction: generate encoded two way interaction  
++ generate_two_way_interactions: generate all possible two-way interactions and merge them into the dataframe  
