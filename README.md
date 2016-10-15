@@ -34,3 +34,7 @@ Better keep them in a place so that I can easily find and reuse them. : )
 ## feature_engineering  
 + two_way_interaction: generate encoded two way interaction  
 + generate_two_way_interactions: generate all possible two-way interactions and merge them into the dataframe  
++ generate_two_way_interactions_from_pairs: generate two way interactions only on specified categorical variable pairs  
+
+## exploratory_analysis
++ SP_cat_feature_vs_cont_target: print summary and plot continuous target by levels of a given categorical variable  
